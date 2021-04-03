@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="hR" class="com.cognizant.springlearnday2.model.Department">
+		<property name="deptId" value="HR" />
+		<property name="deptName" value="Human Resource" />
+	</bean>
+
+	<bean name="fSE" class="com.cognizant.springlearnday2.model.Department">
+		<property name="deptId" value="FSE" />
+		<property name="deptName"
+			value="Full Stack Developer" />
+	</bean>
+
+	<bean name="emp1" class="com.cognizant.springlearnday2.model.Employee">
+		<property name="empId" value="101"/>
+		<property name="empName" value="John" />
+		<property name="dept">
+			<ref bean="hR" />
+		</property>
+		<property name="salary" value="40000" />
+		<property name="permanent" value="Permanent" />
+		<property name="dateOfBirth" value="19/09/1999" />
+	</bean>
+
+	<bean name="emp2" class="com.cognizant.springlearnday2.model.Employee">
+		<property name="empId" value="102" />
+		<property name="empName" value="Jake" />
+		<property name="dept">
+			<ref bean="fSE" />
+		</property>
+		<property name="salary" value="50000" />
+		<property name="permanent" value="Permanent" />
+		<property name="dateOfBirth" value="20/09/1998" />
+	</bean>
+
+	<bean name="emp3" class="com.cognizant.springlearnday2.model.Employee">
+		<property name="empId" value="103" />
+		<property name="empName" value="Joey" />
+		<property name="dept">
+			<ref bean="hR" />
+		</property>
+		<property name="salary" value="40000" />
+		<property name="permanent" value="Permanent" />
+		<property name="dateOfBirth" value="12/01/1995" />
+	</bean>
+
+	<bean name="emp4" class="com.cognizant.springlearnday2.model.Employee">
+		<property name="empId" value="104" />
+		<property name="empName" value="Ross" />
+		<property name="dept">
+			<ref bean="fSE" />
+		</property>
+		<property name="salary" value="45000" />
+		<property name="permanent" value="Permanent" />
+		<property name="dateOfBirth" value="18/10/1996" />
+	</bean>
+
+	<bean id="employeeList" class="com.cognizant.springlearnday2.dao.EmployeeDao">
+		<property name="list">
+			<list>
+				<ref bean="emp1"></ref>
+				<ref bean="emp2"></ref>
+				<ref bean="emp3"></ref>
+				<ref bean="emp4"></ref>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="deptList" class="com.cognizant.springlearnday2.dao.DepartmentDao">
+		<property name="list">
+			<list>
+				<ref bean="hR"></ref>
+				<ref bean="fSE"></ref>
+			</list>
+		</property>
+	</bean>
+
+</beans>
